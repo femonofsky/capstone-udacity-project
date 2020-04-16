@@ -1,7 +1,7 @@
 pipeline {
-    // environment {
-    //     dockerhubCredentials = 'dockerhubCredentials'
-    // }
+    environment {
+        dockerhubCredentials = 'dockerhub'
+    }
     agent any
     stages {
         stage('Lint HTML') {
@@ -38,7 +38,7 @@ pipeline {
                 script {
                     dir('app') {
                         dockerImage = docker.build("nofsky/udacity-static-capstone:${env.BUILD_ID}")
-                        docker.withRegistry('', dockerhub) {
+                        docker.withRegistry('', dockerhubCredentials) {
                             dockerImage.push('latest')
                         }
                     }
