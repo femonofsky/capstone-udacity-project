@@ -13,3 +13,8 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+infrastructure/jenkinsparameters.json
+infrastructure/eks_server.yml
+
+app/Makefile_keep

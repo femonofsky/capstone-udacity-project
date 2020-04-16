@@ -8,8 +8,7 @@ This project is a requirement to graduate at [Cloud DevOps Nanodegree](https://w
 
 ## Technologies
 
-- Docker, for building a ready-deploy application.
+- Docker for building a ready-deploy application.
 - Kubernetes(AWS EKS), for automating deployment, scaling, and management of containerized applications.
 - CloudFormation, for Infrastructure IT automation.
-- Aqua Microscanner, for docker protection, monitoring, logging and real-time analysis.
 - Jenkins, for automatic integrations and deployments(CI/CD).
