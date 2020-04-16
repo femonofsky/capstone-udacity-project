@@ -45,13 +45,14 @@ pipeline {
                 }
             }
         }
+
         stage('Deploying to EKS') {
             steps {
                 dir('k8s') {
-                    withAWS(credentials: 'mini', region: 'eu-west-2') {
+                    withAWS(credentials: 'mini', region: 'us-west-2') {
                             sh "aws eks --region us-west-2 update-kubeconfig --name eks-stack-EKS-Cluster" 
-                            sh 'kubectl apply -f service.yaml'
-                            sh 'kubectl apply -f deploy.yaml'
+                            sh "kubectl apply -f service.yaml"
+                            sh "kubectl apply -f deploy.yaml"
                         }
                     }
             }
