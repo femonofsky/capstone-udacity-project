@@ -1,12 +1,12 @@
 pipeline {
-    environment {
-        dockerhubCredentials = 'dockerhubCredentials'
-    }
+    // environment {
+    //     dockerhubCredentials = 'dockerhubCredentials'
+    // }
     agent any
     stages {
         stage('Lint HTML') {
             steps {
-                sh ‘tidy -q -e *.html’
+                sh 'tidy -q -e *.html'
             }
         }
         stage('Lint Dockerfile') {
@@ -28,7 +28,7 @@ pipeline {
                 }
             }
         }
-        
+
         // stage('Build & Push to dockerhub') {
         //     steps {
         //         script {
