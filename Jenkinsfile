@@ -45,15 +45,16 @@ pipeline {
                 }
             }
         }
-        // stage('Deploying to EKS') {
-        //     steps {
-        //         dir('k8s') {
-        //             withAWS(credentials: 'aws-credentials', region: 'eu-west-2') {
-        //                     sh "aws eks --region eu-west-2 update-kubeconfig --name capstone"
-        //                     sh 'kubectl apply -f capstone-k8s.yaml'
-        //                 }
-        //             }
-        //     }
-        // }
+        stage('Deploying to EKS') {
+            steps {
+                dir('k8s') {
+                    withAWS(credentials: 'mini', region: 'eu-west-2') {
+                            sh "aws eks --region eu-west-2 update-kubeconfig --name eks-stack-EKS-Cluster"
+                            sh 'kubectl apply -f service.yaml'
+                            sh 'kubectl apply -f deploy.yaml'
+                        }
+                    }
+            }
+        }
     }
 }

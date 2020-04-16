@@ -15,6 +15,6 @@
 # vendor/
 
 infrastructure/jenkinsparameters.json
-infrastructure/eks_server.yml
+infrastructure/eksparameters.json
 
 app/Makefile_keep
