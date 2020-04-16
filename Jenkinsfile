@@ -51,6 +51,7 @@ pipeline {
                 dir('k8s') {
                     withAWS(credentials: 'mini', region: 'us-west-2') {
                             sh "aws eks --region us-west-2 update-kubeconfig --name eks-stack-EKS-Cluster" 
+                            sh "source /var/lib/jenkins/.kube/config"
                             sh "kubectl apply -f service.yaml"
                             sh "kubectl apply -f deploy.yaml"
                         }

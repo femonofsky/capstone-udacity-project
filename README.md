@@ -12,3 +12,4 @@ This project is a requirement to graduate at [Cloud DevOps Nanodegree](https://w
 - Kubernetes(AWS EKS), for automating deployment, scaling, and management of containerized applications.
 - CloudFormation, for Infrastructure IT automation.
 - Jenkins, for automatic integrations and deployments(CI/CD).
+- Rolling Deployment is used by Kubernetes to deploy the app.
