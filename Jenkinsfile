@@ -49,7 +49,7 @@ pipeline {
             steps {
                 dir('k8s') {
                     withAWS(credentials: 'mini', region: 'eu-west-2') {
-                            sh "aws eks --region eu-west-2 update-kubeconfig --name eks-stack-EKS-Cluster"
+                            sh "aws eks --region us-west-2 update-kubeconfig --name eks-stack-EKS-Cluster" 
                             sh 'kubectl apply -f service.yaml'
                             sh 'kubectl apply -f deploy.yaml'
                         }

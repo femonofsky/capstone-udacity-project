@@ -48,8 +48,10 @@ Resources:
           wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | sudo apt-key add -
           sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
           sudo apt-get update -y
+          sudo apt-get upgrade -y
           sudo apt-get install jenkins tidy docker.io -y
           sudo systemctl status jenkins
+          sudo apt-get install awscli -y
           sudo chmod 666 /var/run/docker.sock
       SecurityGroupIds:
         - Ref: JenkinsSG
@@ -61,7 +63,8 @@ Resources:
             VolumeSize: "10"
             DeleteOnTermination: true
             VolumeType: "gp2"
-      ImageId: ami-005bdb005fb00e791
+      ImageId: ami-0d1cd67c26f5fca19
+
       InstanceType: t2.micro
       KeyName: !Sub ${KeyPairName}
       Tags:
