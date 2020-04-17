@@ -52,7 +52,8 @@ pipeline {
                     withAWS(credentials: 'mini', region: 'us-west-2') {
                             sh "aws eks --region us-west-2 update-kubeconfig --name eks-stack-EKS-Cluster" 
                             sh "aws sts get-caller-identity"
-                            sh "kubectl describe configmap -n kube-system aws-auth"
+                            sh "kubectl "
+                            sh "kubectl config view"
                             sh "kubectl apply -f aws-auth-cm.yaml"
                             sh "kubectl get svc"
                             sh "kubectl apply -f service.yaml"
