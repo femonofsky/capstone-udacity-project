@@ -39,7 +39,7 @@ pipeline {
                     dir('app') {
                         dockerImage = docker.build("nofsky/udacity-static-capstone:${env.BUILD_ID}")
                         docker.withRegistry('', dockerhubCredentials) {
-                            dockerImage.push('latest')
+                            dockerImage.push("${env.BUILD_ID}")
                         }
                     }
                 }
@@ -53,6 +53,7 @@ pipeline {
                             sh "aws eks --region us-west-2 update-kubeconfig --name eks-stack-EKS-Cluster" 
                             sh "kubectl apply -f service.yaml"
                             sh "kubectl apply -f deploy.yaml"
+                            sh "kubectl set image --record -f depoly.yaml container=nofsky/udacity-static-capstone:${env.BUILD_ID}"
                         }
                     }
             }
