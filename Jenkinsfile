@@ -51,11 +51,6 @@ pipeline {
                 dir('k8s') {
                     withAWS(credentials: 'mini', region: 'us-west-2') {
                             sh "aws eks --region us-west-2 update-kubeconfig --name eks-stack-EKS-Cluster" 
-                            sh "aws sts get-caller-identity"
-                            sh "kubectl "
-                            sh "kubectl config view"
-                            sh "kubectl apply -f aws-auth-cm.yaml"
-                            sh "kubectl get svc"
                             sh "kubectl apply -f service.yaml"
                             sh "kubectl apply -f deploy.yaml"
                         }
