@@ -53,7 +53,7 @@ pipeline {
                             sh "aws eks --region us-west-2 update-kubeconfig --name eks-stack-EKS-Cluster" 
                             sh "kubectl apply -f service.yaml"
                             sh "kubectl apply -f deploy.yaml"
-                            sh "kubectl set image --record -f depoly.yaml container=nofsky/udacity-static-capstone:${env.BUILD_ID}"
+                            sh "kubectl set image --record -f deploy.yaml capstone-image=nofsky/udacity-static-capstone:${env.BUILD_ID}"
                         }
                     }
             }
